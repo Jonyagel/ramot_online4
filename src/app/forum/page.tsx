@@ -5,13 +5,15 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import axios from 'axios';
 import AddQuestion from './components/addQuestion';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Forum() {
 
     let forum_ar
 
 
 
-    let url = `${process.env.VERCEL_URL}/api/forum`;
+    let url = `${process.env.NEXT_PUBLIC_MY_URL}/api/forum`;
     let resp = await axios.get(url);
     console.log(resp.data);
     forum_ar = resp.data;

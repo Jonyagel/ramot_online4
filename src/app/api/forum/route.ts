@@ -5,6 +5,9 @@ import { cookies } from "next/headers";
 import { UserModel } from "@/src/app/models/userModel";
 import jwt from 'jsonwebtoken';
 
+
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: any, route: any) {
     try {
         await connectDb();
