@@ -36,7 +36,12 @@ export async function POST(req:any,route:any){
       user.password = await bcrypt.hash(user.password,10);
       await user.save();
       user.password = "****";
-      return NextResponse.json(user,{status:201}) 
+      const newToken = createToken(user._id,user.role)
+      const cookieTime = Date.now() + (1000 * 60 * 60)
+      cookies().set("token",newToken,{
+        expires:cookieTime
+      })
+      return NextResponse.json({user,token:newToken},{status:201}) 
     }
     catch(err:any){
       if(err.code == 11000){
@@ -47,3 +52,8 @@ export async function POST(req:any,route:any){
     }
   
   } 
+
+  const createToken = (user_id:any,role:String) => {
+    const token = jwt.sign({_id:user_id,role},"jonySecret",{expiresIn:"60mins"})
+    return token;
+  }
