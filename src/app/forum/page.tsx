@@ -20,16 +20,6 @@ export default async function Forum() {
 
 
 
-    // let url = 'api/forum';
-    // let resp = await fetch(url);
-    // let data = await resp.json();
-    // forum_ar =  data;
-
-
-
-
-
-
     const formatPostAgo = (date: number): string => {
         const timePosted = Date.now() - date;
         const minutesAgo = Math.floor(timePosted / (1000 * 60));
@@ -40,9 +30,6 @@ export default async function Forum() {
         const daysAgo = Math.floor(hoursAgo / 24);
         return `לפני ${daysAgo} ימים`;
     }
-
-
-
 
 
     return (

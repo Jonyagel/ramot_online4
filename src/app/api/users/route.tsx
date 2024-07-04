@@ -12,7 +12,7 @@ export async function GET(req:any,route:any){
     }
     try{
       const token:any = cookies().get("token")?.value;
-      const decodeToken:any = jwt.verify(token, "monkeysSecret")
+      const decodeToken:any = jwt.verify(token, "jonySecret")
       const data = await UserModel.findOne({_id:decodeToken._id},{password:0});
       return NextResponse.json(data)
     }

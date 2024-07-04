@@ -32,7 +32,7 @@ export async function POST(req: any, route: any) {
     try {
         await connectDb();
         const token: any = cookies().get("token")?.value;
-        const decodeToken: any = jwt.verify(token, "monkeysSecret")
+        const decodeToken: any = jwt.verify(token, "jonySecret")
         const user = await UserModel.findOne({ _id: decodeToken._id }, { password: 0 });
 
         //   user.password = await bcrypt.hash(user.password,10);

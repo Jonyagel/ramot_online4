@@ -3,6 +3,10 @@ import LoginForm from './components/loginForm';
 import { cookies } from 'next/headers'
 import Signup from './components/signup';
 
+
+export const dynamic = 'auto';
+
+
 export default function LoginPage() {
 
     let isCookies: any = false
