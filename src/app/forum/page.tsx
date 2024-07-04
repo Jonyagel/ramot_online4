@@ -1,4 +1,4 @@
-
+"use client"
 
 import React, { useEffect } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css';
