@@ -1,4 +1,4 @@
-"use client"
+
 
 import React, { useEffect } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -11,16 +11,19 @@ export default async function Forum() {
 
 
 
-     let url = `${process.env.NEXT_PUBLIC_MY_URL}/api/forum`;
-     let resp = await axios.get(url);
-     console.log(resp.data);
-     forum_ar = resp.data;
+    let url = `${process.env.VERCEL_URL}/api/forum`;
+    let resp = await axios.get(url);
+    console.log(resp.data);
+    forum_ar = resp.data;
 
-    
-   // let url = 'api/forum';
-   // let resp = await fetch(url);
-   // let data = await resp.json();
-  //  forum_ar =  data;
+
+
+    // let url = 'api/forum';
+    // let resp = await fetch(url);
+    // let data = await resp.json();
+    // forum_ar =  data;
+
+
 
 
 
