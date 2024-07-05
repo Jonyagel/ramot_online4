@@ -1,9 +1,17 @@
 import Link from 'next/link'
 import React from 'react'
 import Marquee from 'react-fast-marquee'
+import Head from 'next/head'
 
 export default function Header() {
     return (
+        <div>
+            <Head>
+                 <title>Ramot Online</title>
+                 <meta name="description" content="Ramot Online description" />
+                 <meta name="robots" content="all" />
+                 
+            </Head>
         <div className='bg-light sticky-top'>
             <div className=' d-flex container justify-content-between p-3'>
                 <Link href={"/login"}><button className='btn btn-dark'>כניסה/הרשמה</button></Link>
@@ -23,6 +31,7 @@ export default function Header() {
             <Marquee className='bg-dark text-light' pauseOnHover={true} direction='right' autoFill={true} style={{ direction: 'ltr' }}>
                 שלום מה קורה
             </Marquee>
+        </div>
         </div>
     )
 }
