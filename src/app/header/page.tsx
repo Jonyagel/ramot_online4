@@ -5,7 +5,6 @@ import Marquee from 'react-fast-marquee'
 
 export default function Header() {
     return (
-        <div>
         <div className='bg-light sticky-top'>
             <div className=' d-flex container justify-content-between p-3'>
                 <Link href={"/login"}><button className='btn btn-dark'>כניסה/הרשמה</button></Link>
@@ -23,9 +22,8 @@ export default function Header() {
                 </div>
             </div>
             <Marquee className='bg-dark text-light' pauseOnHover={true} direction='right' autoFill={true} style={{ direction: 'ltr' }}>
-                שלום מה קורה
+               בסדר מצוין שלום מה קורה
             </Marquee>
-        </div>
         </div>
     )
 }
