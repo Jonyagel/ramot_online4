@@ -5,6 +5,9 @@ import { cookies } from "next/headers";
 import { UserModel } from "@/src/app/models/userModel";
 import jwt from 'jsonwebtoken';
 
+
+export const dynamic = 'auto';
+
 export async function GET(req: any, route: any) {
     try {
         await connectDb();
@@ -29,7 +32,7 @@ export async function POST(req: any, route: any) {
     try {
         await connectDb();
         const token: any = cookies().get("token")?.value;
-        const decodeToken: any = jwt.verify(token, "monkeysSecret")
+        const decodeToken: any = jwt.verify(token, "jonySecret")
         const user = await UserModel.findOne({ _id: decodeToken._id }, { password: 0 });
 
         //   user.password = await bcrypt.hash(user.password,10);
