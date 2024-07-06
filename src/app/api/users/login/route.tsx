@@ -20,7 +20,7 @@ export async function POST(req:any,route:any){
     const bodyData = await req.json();
     const validBody = validateLogin(bodyData);
     if(validBody.error){
-      return NextResponse.json(validBody.error.details,{status:400})
+      return NextResponse.json(validBody.error.details,{status:400}) 
     }
     try{
       await connectDb();

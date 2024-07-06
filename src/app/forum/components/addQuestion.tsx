@@ -59,10 +59,10 @@ export default function AddQuestion() {
                         <form onSubmit={doApi}>
                             <div className="form-floating m-4">
                                 <select ref={topicRef} className="form-select">
-                                    <option value="שאלה" selected>שאלה</option>
-                                    <option value="עזרה">עזרה</option>
-                                    <option value="בעיה">בעיה</option>
-                                    <option value="תקלה">תקלה</option>
+                                    <option defaultValue="שאלה">שאלה</option>
+                                    <option defaultValue="עזרה">עזרה</option>
+                                    <option defaultValue="בעיה">בעיה</option>
+                                    <option defaultValue="תקלה">תקלה</option>
                                 </select>
                                 <label >בחר נושא</label>
                             </div>

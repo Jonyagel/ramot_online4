@@ -35,7 +35,7 @@ export default async function Forum() {
     return (
         <div className='container'>
 
-            <div className='tittle text-center d-flex align-items-center justify-content-center z-1'>
+            <div className='tittle text-center d-flex align-items-center justify-content-center z-1 mt-3'>
                 <p> תושבי רמות אחד בשביל השני<br />
                     שואלים, עונים...וכו וכו מילים של רחלי...</p>
             </div>
