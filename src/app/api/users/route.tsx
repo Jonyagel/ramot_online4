@@ -49,13 +49,15 @@ export async function POST(req: any, route: any) {
     if (!passValid) {
       return NextResponse.json({ err: "password not match" }, { status: 401 })
     }
-    // const newToken = createToken(userLogin._id, userLogin.role)
-    // const cookieTime = Date.now() + (1000 * 60 * 60)
-    // cookies().set("token", newToken, {
-    //   expires: cookieTime
-    // })
-    // return NextResponse.json({ msg: "Success , you logged in", token: newToken })
-    return NextResponse.json({ msg: "Success , you logged in"})
+    if (!cookies().has("token")) {
+      const newToken = createToken(userLogin._id, userLogin.role)
+      const cookieTime = Date.now() + (1000 * 60 * 60)
+      cookies().set("token", newToken, {
+        expires: cookieTime
+      })
+      return NextResponse.json({ msg: "Success , you logged in", token: newToken })
+    }
+
 
 
   }
