@@ -26,7 +26,7 @@ export async function POST(req: any, route: any) {
     if (validBody.error) {
         return NextResponse.json(validBody.error.details, { status: 400 })
     }
-    if (!cookies().has("token")) {
+    if (typeof window !== 'undefined' && !cookies().has("token")) {
         return NextResponse.json({ msg: "You need send token" }, { status: 401 })
     }
     try {
