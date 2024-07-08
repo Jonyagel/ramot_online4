@@ -4,6 +4,7 @@ import "./globals.css";
 import './bootstrap.min.css';
 import Header from "./header/page";
 import localFont from 'next/font/local'
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,7 @@ export default function RootLayout({
             <body className={inter.className}>
               <Header />
               {children}
+              <Analytics />
             </body>
           </html>
           );

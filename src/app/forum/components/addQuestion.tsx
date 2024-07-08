@@ -39,7 +39,9 @@ export default function AddQuestion() {
     }
 
 
-
+      const closeForm = () => {
+        setAddForum(false);
+    }
    
 
     const openForm = () => {
@@ -55,7 +57,7 @@ export default function AddQuestion() {
             {addForum && (
                 <div className='position-fixed top-0 start-0 bg-dark bg-opacity-25 vw-100 vh-100 container-fluid justify-content-center align-content-center z-2'>
                     <div className='bg-info w-25 vh-50 mx-auto text-center p-5 rounded-4 shadow position-relative'>
-                        <button className="btn-close position-absolute top-0 end-0 m-2" aria-label="Close"></button>
+                        <button onClick={closeForm} className="btn-close position-absolute top-0 end-0 m-2" aria-label="Close"></button>
                         <form onSubmit={doApi}>
                             <div className="form-floating m-4">
                                 <select ref={topicRef} className="form-select">
