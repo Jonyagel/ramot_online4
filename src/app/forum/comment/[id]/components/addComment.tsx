@@ -2,6 +2,8 @@
 
 import React, { useRef } from 'react'
 
+export const dynamic = 'auto';
+
 export default function AddComment(props: any) {
 
     const commentRef:any = useRef();

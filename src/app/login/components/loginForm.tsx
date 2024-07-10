@@ -3,7 +3,6 @@
 import React, { useRef } from 'react'
 import { useRouter } from 'next/navigation';
 
-
 export const dynamic = 'auto';
 
 export default function LoginForm() {

@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 
+export const dynamic = 'auto';
+
 export default function ForumInComment(props: any) {
     const [dataForum, setDataForum] = useState<any | []>([]);
 
