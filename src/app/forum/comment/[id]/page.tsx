@@ -1,37 +1,54 @@
-import axios from 'axios'
-import React from 'react'
+"use client"
 
-export default async function comment(props: any) {
-
-  let url = `${process.env.NEXT_PUBLIC_API_URL}/api/forum/comment`
-   const resp = await axios.get(url);
-  let commentAr = resp.data;
-   console.log(resp.data);
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import ForumInComment from './components/forumInComment';
+import AddComment from './components/addComment';
+import CommentById from './components/commentById';
 
 
-  // let url = `${process.env.NEXT_PUBLIC_API_URL}/api/forum/comment`
-  // const resp = await axios({
-  //   url,
-  //   method: 'POST',
-  //   data: {
-  //     forumMsgId: "6683ec611b6b53ae6a8b0355",
-  //     comment: "this is a comment"
-  //   },
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   }
-  // });
-  // console.log(resp.data);
+
+export const dynamic = 'auto';
+
+export default function Comment(props: any) {
+
+  const [commentValue, setComment] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    doApi2();
+  }, [commentValue])
+
+
+
+  const doApi2 = async () => {
+    const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/forum/comment`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        forumMsgId: props.params.id,
+        comment: commentValue
+      }),
+    });
+    const data = await resp.json();
+    console.log(data);
+    router.push(`/forum/comment/${props.params.id}`);
+
+
+  }
+
+
 
 
   return (
-    <div>
-       {commentAr.map((item:any) => {
-        return ( 
-         <div key={item._id}>{item.userName}</div> 
-        )
-        
-    })}
+    <div className='container w-75 bg-info bg-opacity-25 rounded'>
+      <ForumInComment idForum={props.params.id} />
+      <CommentById commentValue={commentValue} idForum={props.params.id}/>
+      <AddComment commentValue={setComment} />
     </div>
   )
 }
+
+

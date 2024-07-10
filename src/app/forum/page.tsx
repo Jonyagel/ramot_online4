@@ -5,6 +5,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import axios from 'axios';
 import AddQuestion from './components/addQuestion';
 import Link from 'next/link';
+
+
 export const dynamic = 'auto';
 
 export default async function Forum() {
