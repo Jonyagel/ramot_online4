@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useRouter } from 'next/navigation';
 
-export const dynamic = 'auto';
+// export const dynamic = 'auto';
 
 export default function CommentById(props: any) {
 
