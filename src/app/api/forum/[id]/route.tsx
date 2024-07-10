@@ -3,7 +3,7 @@ import { ForumModel } from "@/src/app/models/forumModel";
 import { NextRequest, NextResponse } from "next/server";
 
 
-export const dynamic = 'auto';
+// export const dynamic = 'auto';
 
 
 export async function GET(req: NextRequest, route: any) {
