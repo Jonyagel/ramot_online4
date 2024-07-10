@@ -23,15 +23,15 @@ export default function Signup() {
         const password = passRef.current.value;
 
 
-        const resp = await axios({
-            url: `${process.env.NEXT_PUBLIC_API_URL}/api/users`,
+        const resp = await fetch( `${process.env.NEXT_PUBLIC_API_URL}/api/users`,{
             method: 'POST',
-            data: { name, email, password },
+            body:JSON.stringify( { name, email, password }),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-        console.log(resp.data);
+        const data = await resp.json();
+        console.log(data);
         router.push('/')
     }
 
