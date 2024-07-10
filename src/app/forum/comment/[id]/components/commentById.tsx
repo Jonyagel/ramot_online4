@@ -16,7 +16,7 @@ const router = useRouter();
 
 useEffect(() => {
     doApi(); 
-},[props.commentValue])
+},[])
 
     const doApi = async () => {
 

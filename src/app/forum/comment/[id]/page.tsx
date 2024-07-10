@@ -12,32 +12,32 @@ export const dynamic = 'auto';
 
 export default function Comment(props: any) {
 
-  const [commentValue, setComment] = useState("");
-  const router = useRouter();
+  // const [commentValue, setComment] = useState("");
+  // const router = useRouter();
 
-  useEffect(() => {
-    doApi2();
-  }, [commentValue])
-
-
-
-  const doApi2 = async () => {
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/forum/comment`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        forumMsgId: props.params.id,
-        comment: commentValue
-      }),
-    });
-    const data = await resp.json();
-    console.log(data);
-    router.push(`/forum/comment/${props.params.id}`);
+  // useEffect(() => {
+  //   doApi2();
+  // }, [commentValue])
 
 
-  }
+
+  // const doApi2 = async () => {
+  //   const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/forum/comment`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       forumMsgId: props.params.id,
+  //       comment: commentValue
+  //     }),
+  //   });
+  //   const data = await resp.json();
+  //   console.log(data);
+  //   router.push(`/forum/comment/${props.params.id}`);
+
+
+  // }
 
 
 
@@ -45,8 +45,8 @@ export default function Comment(props: any) {
   return (
     <div className='container w-75 bg-info bg-opacity-25 rounded'>
       <ForumInComment idForum={props.params.id} />
-      <CommentById commentValue={commentValue} idForum={props.params.id}/>
-      <AddComment commentValue={setComment} />
+      <CommentById idForum={props.params.id}/>
+      <AddComment idForum={props.params.id}/>
     </div>
   )
 }

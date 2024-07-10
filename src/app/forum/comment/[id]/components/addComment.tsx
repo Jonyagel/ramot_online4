@@ -1,16 +1,42 @@
 "use client"
 
-import React, { useRef } from 'react'
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useRef, useState } from 'react'
 
 export const dynamic = 'auto';
 
 export default function AddComment(props: any) {
 
+    const [commentValue, setComment] = useState("");
+    const router = useRouter();
     const commentRef:any = useRef();
+
+    useEffect(() => {
+        doApi();
+      }, [commentValue])
+
+    const doApi = async () => {
+        const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/forum/comment`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            forumMsgId: props.idForum,
+            comment: commentValue
+          }),
+        });
+        const data = await resp.json();
+        console.log(data);
+        router.push(`/forum/comment/${props.params.id}`);
+    
+    
+      }
+
 
 const addComment = () => {
     const comment = commentRef.current.value;
-    props.commentValue(comment);
+    setComment(comment);
     console.log(comment);
 }
 
