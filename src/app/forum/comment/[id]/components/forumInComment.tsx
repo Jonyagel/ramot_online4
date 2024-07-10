@@ -1,14 +1,14 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
 export default function ForumInComment(props: any) {
     const [dataForum, setDataForum] = useState<any | []>([]);
 
-    // useEffect(() => {
-
-    // }, []);
+    useEffect(() => {
+        doApi();
+    }, []);
 
 
     const doApi = async () => {
@@ -20,7 +20,7 @@ export default function ForumInComment(props: any) {
         console.log(data);
 
     }
-    doApi();
+   
 
 
 
