@@ -6,10 +6,11 @@ import { NextRequest, NextResponse } from "next/server";
 // export const dynamic = 'auto';
 
 
-export async function GET(req: NextRequest, route: any) {
+export async function GET(req: any, route: any) {
     try {
         await connectDb();
-        const id = req.url.split("http://localhost:3000/api/forum/")[1];
+        // const id = req.url.split("http://localhost:3000/api/forum/")[1];
+        const {id} = req.query;
         const data = await ForumModel.findOne({_id: id });
         return NextResponse.json(data);
     }
