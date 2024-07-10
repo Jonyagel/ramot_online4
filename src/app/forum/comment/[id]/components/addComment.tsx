@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
 
-// export const dynamic = 'auto';
+export const dynamic = 'auto';
 
 export default function AddComment(props: any) {
 

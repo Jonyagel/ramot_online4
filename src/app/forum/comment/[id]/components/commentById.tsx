@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useRouter } from 'next/navigation';
 
@@ -13,9 +13,9 @@ export default function CommentById(props: any) {
 
 
 
-// useEffect(() => {
-    
-// },[])
+useEffect(() => {
+  doApi(); 
+},[])
 
     const doApi = async () => {
 
@@ -26,7 +26,7 @@ export default function CommentById(props: any) {
         setDataComment(commentAr);
         console.log("hnjtj"+dataGet);
       }
-      doApi(); 
+     
 
     const formatPostAgo = (date: number): string => {
         const timePosted = Date.now() - date;
