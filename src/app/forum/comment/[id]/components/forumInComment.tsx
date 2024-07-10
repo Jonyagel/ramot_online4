@@ -1,17 +1,16 @@
-"use client"
 
 import React, { useEffect, useState } from 'react'
 
-export const dynamic = 'auto';
+
 
 export default function ForumInComment(props: any) {
     const [dataForum, setDataForum] = useState<any | []>([]);
 
     useEffect(() => {
-        doApi2();
+        doApi();
     }, []);
 
-    const doApi2 = async () => {
+    const doApi = async () => {
         let url = `${process.env.NEXT_PUBLIC_API_URL}/api/forum/${props.idForum}`
         const resp = await fetch(url);
         const data = await resp.json();
