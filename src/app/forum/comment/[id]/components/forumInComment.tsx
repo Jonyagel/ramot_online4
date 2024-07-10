@@ -1,15 +1,15 @@
-"use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 
 
 export default function ForumInComment(props: any) {
     const [dataForum, setDataForum] = useState<any | []>([]);
 
-    useEffect(() => {
-        doApi();
-    }, []);
+    // useEffect(() => {
+
+    // }, []);
+
 
     const doApi = async () => {
         let url = `${process.env.NEXT_PUBLIC_API_URL}/api/forum/${props.idForum}`
@@ -17,10 +17,10 @@ export default function ForumInComment(props: any) {
         const data = await resp.json();
         const ForumAr = data;
         setDataForum(ForumAr);
-
         console.log(data);
 
     }
+    doApi();
 
 
 
@@ -33,9 +33,9 @@ export default function ForumInComment(props: any) {
         if (hoursAgo < 24) return `לפני ${hoursAgo} שעות`;
         const daysAgo = Math.floor(hoursAgo / 24);
         return `לפני ${daysAgo} ימים`;
-      }
+    }
 
-      
+
 
 
     return (
@@ -64,7 +64,7 @@ export default function ForumInComment(props: any) {
                     </div>
                     <div className='time-msg col-2 d-flex justify-content-between px-4 align-items-end mb-2'>
                         <p className='mb-0'>
-                        {formatPostAgo(dataForum.date)}
+                            {formatPostAgo(dataForum.date)}
                         </p>
                         <i className="bi bi-chat"> 0 </i>
                     </div>

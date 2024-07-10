@@ -1,6 +1,5 @@
-"use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useRouter } from 'next/navigation';
 
@@ -8,15 +7,15 @@ import { useRouter } from 'next/navigation';
 
 export default function CommentById(props: any) {
 
-const router = useRouter();
+// const router = useRouter();
 
     const [dataComment, setDataComment] = useState([]);
 
 
 
-useEffect(() => {
-    doApi(); 
-},[])
+// useEffect(() => {
+    
+// },[])
 
     const doApi = async () => {
 
@@ -26,9 +25,8 @@ useEffect(() => {
         let commentAr = dataGet;
         setDataComment(commentAr);
         console.log("hnjtj"+dataGet);
-    
-    
       }
+      doApi(); 
 
     const formatPostAgo = (date: number): string => {
         const timePosted = Date.now() - date;
