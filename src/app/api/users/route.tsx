@@ -72,6 +72,6 @@ export async function POST(req: any, route: any) {
 }
 
 const createToken = (user_id: any, role: String) => {
-  const token = jwt.sign({ _id: user_id, role }, "jonySecret", { expiresIn: "60mins" })
+  const token = jwt.sign({ _id: user_id, role }, "jonySecret", { expiresIn: "24h" })
   return token;
 }

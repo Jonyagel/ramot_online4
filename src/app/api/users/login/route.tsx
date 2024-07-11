@@ -36,7 +36,7 @@ export async function POST(req: any, route: any) {
     }
     if (!cookies().has("token")) {
       const newToken = createToken(user._id, user.role)
-      const cookieTime = Date.now() + (1000 * 60 * 60)
+      const cookieTime = Date.now() + (1000 * 60 * 60 * 24)
       cookies().set("token", newToken, {
         expires: cookieTime
       })
@@ -52,6 +52,6 @@ export async function POST(req: any, route: any) {
 
 
 const createToken = (user_id: any, role: String) => {
-  const token = jwt.sign({ _id: user_id, role }, "jonySecret", { expiresIn: "60mins" })
+  const token = jwt.sign({ _id: user_id, role }, "jonySecret", { expiresIn: "24h" })
   return token;
 }

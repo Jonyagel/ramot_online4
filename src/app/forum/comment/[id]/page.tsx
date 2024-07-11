@@ -43,7 +43,7 @@ export default function Comment(props: any) {
 
 
   return (
-    <div className='container w-75 bg-info bg-opacity-25 rounded'>
+    <div className='container w-75 bg-info bg-opacity-25 rounded pb-2'>
       <ForumInComment idForum={props.params.id} />
       <CommentById idForum={props.params.id}/>
       <AddComment idForum={props.params.id}/>
