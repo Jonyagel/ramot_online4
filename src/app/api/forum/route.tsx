@@ -26,21 +26,21 @@ export async function POST(req: any, route: any) {
     if (validBody.error) {
         return NextResponse.json(validBody.error.details, { status: 400 })
     }
-    if (!cookies().has("token")) {
-        return NextResponse.json({ msg: "You need send token" }, { status: 401 })
-    }
+//    if (!cookies().has("token")) {
+//        return NextResponse.json({ msg: "You need send token" }, { status: 401 })
+//    }
     try {
         await connectDb();
-        const token: any = cookies().get("token")?.value;
-        const decodeToken: any = jwt.verify(token, "jonySecret")
-        const user = await UserModel.findOne({ _id: decodeToken._id }, { password: 0 });
+ //       const token: any = cookies().get("token")?.value;
+ //       const decodeToken: any = jwt.verify(token, "jonySecret")
+ //       const user = await UserModel.findOne({ _id: decodeToken._id }, { password: 0 });
 
         //   user.password = await bcrypt.hash(user.password,10);
         //   user.password = "****";
     
         const forum = new ForumModel(bodyData);
-        forum.userId = user._id;
-        forum.userName = user.name;
+//        forum.userId = user._id;
+ //       forum.userName = user.name;
         forum.date = Date.now();
         await forum.save();
 
