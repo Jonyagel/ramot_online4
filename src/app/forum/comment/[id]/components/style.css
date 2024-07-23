@@ -1,0 +1,6 @@
+.comment_on_comment{
+    opacity: 0;
+}
+.comment_on_comment:hover{
+    opacity: 1;
+}
