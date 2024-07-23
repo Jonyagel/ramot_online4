@@ -37,7 +37,7 @@ export default async function Forum() {
     // }, [addForum])
 
     
-
+  doApi();
 
     const initialData = await doApi();
 
