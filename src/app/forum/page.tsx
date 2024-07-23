@@ -11,7 +11,7 @@
 import React from 'react';
 import ShowForum from './components/showForum';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'auto';
 
 async function doApi ()  {
     let url = `${process.env.NEXT_PUBLIC_API_URL}/api/forum`;
