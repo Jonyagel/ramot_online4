@@ -10,7 +10,7 @@ import Modal from 'react-bootstrap/Modal';
 export const dynamic = 'auto';
 
 export default function CommentById(props: any) {
-  const [dataForum, setDataForum] = useState<any | []>([]);
+  const [dataForum, setDataForum] = useState(props.forumData);
   const [dataComment, setDataComment] = useState(props.commentAr);
   // const [isHovered, setIsHovered] = useState(false);
   const [hoveredCommentId, setHoveredCommentId] = useState<string | null>(null);
@@ -24,7 +24,7 @@ export default function CommentById(props: any) {
 
   useEffect(() => {
     // doApi();
-    doApiForum();
+    // doApiForum();
   }, [])
 
 
@@ -37,15 +37,15 @@ export default function CommentById(props: any) {
   //   setDataComment(commentAr);
   // }
 
-  const doApiForum = async () => {
-    let url = `${process.env.NEXT_PUBLIC_API_URL}/api/forum/${props.idForum}`
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const ForumAr = data;
-    setDataForum(ForumAr);
-    console.log(data);
+  // const doApiForum = async () => {
+  //   let url = `${process.env.NEXT_PUBLIC_API_URL}/api/forum/${props.idForum}`
+  //   const resp = await fetch(url);
+  //   const data = await resp.json();
+  //   const ForumAr = data;
+  //   setDataForum(ForumAr);
+  //   console.log(data);
 
-  }
+  // }
 
 
   const formatPostAgo = (date: number): string => {
@@ -196,7 +196,7 @@ export default function CommentById(props: any) {
 
       })}
       {/* <AddComment idForum={props.idForum} doApiProps={doApi} doApiForum={doApiForum} commentReplying={commentReplying} replay={replay} setReplay={setReplay} /> */}
-      <AddComment idForum={props.idForum} dataComment={dataComment} doApiForum={doApiForum} commentReplying={commentReplying} replay={replay} setReplay={setReplay} />
+      <AddComment idForum={props.idForum} dataComment={dataComment} doApiForum={dataForum} commentReplying={commentReplying} replay={replay} setReplay={setReplay} />
     </div>
   )
 }
